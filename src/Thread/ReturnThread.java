@@ -8,9 +8,15 @@ public class ReturnThread extends Thread{
 	}
 	public void run() {
 		// add code here starting. it is a loop for computing factorial with 30 evaluations
+		long s = 1;
+		//double result = 0;
+		while (ComputeThread.i != 30)
+		{
+			ComputeThread.i *= s;
+			s++;
+		}
 
-
-
+		threadFrame.resultfield.setText("" + ComputeThread.result);
 
 
 
