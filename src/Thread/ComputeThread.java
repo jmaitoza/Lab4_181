@@ -1,12 +1,13 @@
 package Thread;
 
+import java.math.BigInteger;
+
 public class ComputeThread implements Runnable{
 	ThreadFrame threadframe ;
 	static public double result = 0;
 	static public int i;
 	String str1 = "";
 	//Runnable runnable = new ComputeThread(threadframe);
-
 	public ComputeThread(ThreadFrame t) {
 		threadframe = t;
 	}
@@ -15,26 +16,20 @@ public class ComputeThread implements Runnable{
 		for(i=1;i<=30;i++)
 		{
 			//add code starting here
-			//Thread thread1 = new Thread(runnable);
-			//thread1.start();
 			if (str1.equals(""))
 			{
 				str1 = (i + "!");
 			}
 			else
 			{
-				str1 = str1 + " + " + i + "!";
+				str1 = (str1 + " + " + i + "!");
 			}
 
 			s *= i;
 			result += s;
-
-
-			//add code stopping here
-			//thread1.stop();
 			threadframe.output.setText(str1);
 			threadframe.jprogressBar.setValue(i);
-
+			//add code stopping here
 			try {
 				Thread.sleep((long)(500 + 500 * Math.random()));
 			} catch (InterruptedException e) {
